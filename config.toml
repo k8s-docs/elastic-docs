@@ -1,0 +1,4 @@
+baseURL = "https://www.elastic.co/"
+languageCode = "en-us"
+title = "弹性堆栈和产品文档"
+theme = ["docsy"]
