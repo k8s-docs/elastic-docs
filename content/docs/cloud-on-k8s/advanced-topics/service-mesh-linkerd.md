@@ -1,4 +1,9 @@
-Linkerdedit
+---
+title: "Linkerd"
+linkTitle: ""
+weight: 1
+---
+
 The following sections describe how to connect the operator and managed resources to the Linkerd service mesh. It is assumed that Linkerd is already installed and configured on your Kubernetes cluster. If you are new to Linkerd, refer to the product documentation for more information and installation instructions.
 
 These instructions have been tested with Linkerd 2.7.0.

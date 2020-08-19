@@ -1,4 +1,9 @@
-Deploy the operatoredit
+---
+title: "部署运营商"
+linkTitle: ""
+weight: 1
+---
+
 Apply the all-in-one template, as described in the quickstart.
 
 oc apply -f https://download.elastic.co/downloads/eck/1.2.0/all-in-one.yaml

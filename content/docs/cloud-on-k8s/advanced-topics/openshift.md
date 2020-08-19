@@ -1,4 +1,9 @@
-Deploy ECK on OpenShiftedit
+---
+title: "OpenShift上部署ECK"
+linkTitle: ""
+weight: 1
+---
+
 This page shows how to run ECK on OpenShift.
 
 Before you begin

@@ -3,17 +3,16 @@ title: "使用cert-manager管理webhook证书 "
 linkTitle: "certmanager"
 weight: 1
 description: >
-  If ECK is currently running, first make sure that the automatic certificate management feature is disabled.
-  To do this, add the --manage-webhook-certs=false flag to the operator deployment manifest.
+  如果ECK当前正在运行, 首先确保自动证书管理功能被禁用.
+  去做这个, 添加 --manage-webhook-certs=false 标记给操作员部署清单.
 ---
 
-Then, install cert-manager v0.11+ as described in the cert-manager documentation.
+然后, 如上所述在证书管理器文档中安装[证书管理器](https://docs.cert-manager.io/en/latest/getting-started/install/) v0.11+ .
 
-This example shows how to create all the resources that a webhook requires to function.
+此示例演示如何创建的所有资源 一个 webhook 要求的功能。
+webhook.yaml
 
-```sh
-cat <<EOF | kubectl apply -f -
----
+```yaml
 # this configures
 # - a self signed cert-manager issuer
 # - a service to point to the webhook
@@ -35,8 +34,8 @@ metadata:
 spec:
   commonName: elastic-webhook.elastic-system.svc
   dnsNames:
-  - elastic-webhook.elastic-system.svc.cluster.local
-  - elastic-webhook.elastic-system.svc
+    - elastic-webhook.elastic-system.svc.cluster.local
+    - elastic-webhook.elastic-system.svc
   issuerRef:
     kind: Issuer
     name: selfsigned-issuer
@@ -49,10 +48,10 @@ metadata:
   namespace: elastic-system
 spec:
   ports:
-  - port: 443
-    protocol: TCP
-    targetPort: 9443
-    name: https-webhook
+    - port: 443
+      protocol: TCP
+      targetPort: 9443
+      name: https-webhook
   selector:
     control-plane: elastic-operator
   sessionAffinity: None
@@ -65,27 +64,30 @@ metadata:
   annotations:
     cert-manager.io/inject-ca-from: elastic-system/elastic-webhook
 webhooks:
-- clientConfig:
-    caBundle: Cg==
-    service:
-      name: elastic-webhook
-      namespace: elastic-system
-      # this is the path controller-runtime automatically generates
-      path: /validate-elasticsearch-k8s-elastic-co-v1-elasticsearch
-  failurePolicy: Ignore
-  name: elastic-es-validation-v1.k8s.elastic.co
-  sideEffects: None
-  rules:
-  - apiGroups:
-    - elasticsearch.k8s.elastic.co
-    apiVersions:
-    - v1
-    operations:
-    - CREATE
-    - UPDATE
-    resources:
-    - elasticsearches
-EOF
+  - clientConfig:
+      caBundle: Cg==
+      service:
+        name: elastic-webhook
+        namespace: elastic-system
+        # this is the path controller-runtime automatically generates
+        path: /validate-elasticsearch-k8s-elastic-co-v1-elasticsearch
+    failurePolicy: Ignore
+    name: elastic-es-validation-v1.k8s.elastic.co
+    sideEffects: None
+    rules:
+      - apiGroups:
+          - elasticsearch.k8s.elastic.co
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - elasticsearches
 ```
 
-> This example assumes that you have installed the operator in the elastic-system namespace.
+```
+kubectl apply -f webhook.yaml
+```
+
+> 这个例子假定在 elastic-system 命名空间里面您已经安装了运营商 .

@@ -1,4 +1,9 @@
-Deploy an APM Server instance with a routeedit
+---
+title: "带路由部署APM Server实例 "
+linkTitle: ""
+weight: 1
+---
+
 It is currently not possible to run the APM Server with the restricted SCC. A possible workaround is to allow the Pod to run with the default uid 1000 by assigning it to the anyuid SCC:
 
 Create a service account to run the APM Server

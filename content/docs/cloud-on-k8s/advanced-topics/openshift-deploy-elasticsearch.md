@@ -1,4 +1,9 @@
-Deploy an Elasticsearch instance with a routeedit
+---
+title: "带路由部署Elasticsearch实例 "
+linkTitle: ""
+weight: 1
+---
+
 Use the following code to create an Elasticsearch cluster elasticsearch-sample and a "passthrough" route to access it:
 
 cat <<EOF | oc apply -n elastic -f -

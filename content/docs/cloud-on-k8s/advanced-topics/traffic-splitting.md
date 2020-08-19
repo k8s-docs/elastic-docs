@@ -1,4 +1,9 @@
-Traffic Splittingedit
+---
+title: "流量拆分"
+linkTitle: ""
+weight: 1
+---
+
 The default Kubernetes service created by ECK — named <cluster_name>-es-http — is configured to include all the Elasticsearch nodes in that cluster. This configuration is good enough to get started and adequate for most simple use cases. However, if you are operating an Elasticsearch cluster with different node types and want control over which nodes handle which types of traffic, you should create additional Kubernetes services yourself to do so. Alternatively, you could make use of features provided by third-party software such as service meshes and ingress controllers to achieve more advanced traffic management configurations.
 
 The recipes directory in the ECK source repository contains several examples of using third-party service meshes and ingress controllers for managing traffic to ECK resources.

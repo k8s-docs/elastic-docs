@@ -1,6 +1,6 @@
 ---
 title: "在ECK上运行Elasticsearch"
-linkTitle: "ECK上运行ES"
+linkTitle: "运行ES"
 weight: 1
 ---
 

@@ -4,7 +4,7 @@ linkTitle: "部署KB"
 weight: 3
 ---
 
-要部署 Kibana 实例经过以下步骤.
+要部署 [Kibana](https://www.elastic.co/guide/en/kibana/7.8/introduction.html#introduction) 实例经过以下步骤.
 
 指定 Kibana 实例 并与您的 Elasticsearch 集群关联:
 
@@ -13,12 +13,12 @@ cat <<EOF | kubectl apply -f -
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
-name: quickstart
+  name: quickstart
 spec:
-version: 7.8.1
-count: 1
-elasticsearchRef:
-name: quickstart
+  version: 7.8.1
+  count: 1
+  elasticsearchRef:
+    name: quickstart
 EOF
 ```
 
@@ -52,7 +52,7 @@ kubectl port-forward service/quickstart-kb-http 5601
 
 在您的浏览器打开 https://localhost:5601 .
 您的浏览器会显示一个警告 因为默认配置自签名证书不是由已知证书颁发机构核实并且你的浏览器不信任.
-为这个快速启动你可以暂时确认警告但强烈建议您在任何生产部署配置有效证件.
+为这个快速启动你可以暂时确认警告但强烈建议您在任何生产部署[配置有效证件](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-tls-certificates.html#k8s-setting-up-your-own-certificate).
 
 登录为`elastic`用户. 密码可以通过下面的命令来获得:
 

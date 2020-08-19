@@ -15,17 +15,16 @@ cat <<EOF | kubectl apply -f -
 apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
 metadata:
-name: quickstart
+  name: quickstart
 spec:
-version: 7.8.1
-nodeSets:
-
-- name: default
-  count: 3
-  config:
-  node.master: true
-  node.data: true
-  node.ingest: true
-  node.store.allow_mmap: false
-  EOF
+  version: 7.8.1
+  nodeSets:
+  - name: default
+    count: 3
+    config:
+      node.master: true
+      node.data: true
+      node.ingest: true
+      node.store.allow_mmap: false
+EOF
 ```

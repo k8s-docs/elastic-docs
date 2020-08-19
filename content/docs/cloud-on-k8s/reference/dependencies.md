@@ -1,4 +1,9 @@
-Third-party dependenciesedit
+---
+title: "第三方依赖"
+linkTitle: ""
+weight: 3
+---
+
 This page lists the third-party dependencies used to build Elastic Cloud on Kubernetes.
 
 Direct dependenciesedit

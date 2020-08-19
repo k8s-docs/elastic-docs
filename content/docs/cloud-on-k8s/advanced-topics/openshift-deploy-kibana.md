@@ -1,4 +1,9 @@
-Deploy a Kibana instance with a routeedit
+---
+title: "带路由部署Kibana实例"
+linkTitle: ""
+weight: 1
+---
+
 Use the following code to create a Kibana instance and a "passthrough" route to access it:
 
 cat <<EOF | oc apply -n elastic -f -

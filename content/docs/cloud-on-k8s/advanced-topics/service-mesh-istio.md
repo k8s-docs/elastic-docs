@@ -1,4 +1,9 @@
-Istioedit
+---
+title: "Istio"
+linkTitle: ""
+weight: 1
+---
+
 The following sections describe how to connect the operator and managed resources to the Istio service mesh. It is assumed that Istio is already installed and configured on your Kubernetes cluster. If you are new to Istio, refer to the product documentation for more information and installation instructions.
 
 These instructions have been tested with Istio 1.6.1. Some details may differ on older or newer versions of Istio and might require additional configuration steps not documented here.
